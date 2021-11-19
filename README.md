@@ -1,2 +1,33 @@
 # Enum-GetValues-CSharp
-GetValues Enum 
+Exemplo de GetValues
+
+```csharp
+  class Program
+  {
+      static void Main(string[] args)
+      {
+          var tipos = ETipoPessoaList.All;
+
+          foreach (ETipoPessoa item in tipos)
+          {
+              Console.WriteLine($"Tipo: {item}");
+          }
+      }
+  }
+
+  public static class ETipoPessoaList
+  {
+      public static List<ETipoPessoa> All => Enum.GetValues(typeof(ETipoPessoa)).OfType<ETipoPessoa>().ToList();
+  }
+
+  public enum ETipoPessoa
+  {
+      Funcionario,
+      Gerente,
+      Gestor,
+      Programador,
+      Analista,
+      AuxiliarFinanceiro,
+      Financeiro
+  }
+```
